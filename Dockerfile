@@ -31,6 +31,8 @@ RUN apt-get update && apt-get install -y \
     sqlite3 \
     unzip \
     zip \
+    npm \
+    gulp \
     && rm -rf /var/lib/apt/lists/*
 
 RUN echo "Europe/Berlin" > /etc/timezone && \
@@ -75,6 +77,8 @@ RUN set -eux; \
     if [ -f composer.json ]; then \
         composer install --ignore-platform-reqs --no-autoloader --no-scripts --no-progress; \
         composer clear-cache; \
+        npm install; \
+        gulp; \
     fi
 
 # copy sources
