@@ -41,7 +41,7 @@ function stylesInstaller() {
 stylesInstaller.description = 'Run less to generate stylesheets for the installer.';
 
 function scripts() {
-    return gulp.src(config.js.src)
+    return gulp.src(config.js.src, { allowEmpty: true })
         .pipe(sourcemaps.init())
         .pipe(concat('scripts.min.js'))
         .pipe(gulp.dest(config.js.dest))
